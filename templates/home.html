@@ -32,11 +32,11 @@
         <div class="flex-row">
             <div class="stat-box">
                 <div class="text">Total. <br>Courses</div>
-                <h1 class="number" style="margin-top:10px">?</h1>
+                <h1 class="number" style="margin-top:10px">{{sno}}</h1>
             </div>
             <div class="stat-box">
                 <div class="text">Total. <br> Aff. Colleges</div>
-                <h1 class="number" style="margin-top:10px">?</h1>
+                <h1 class="number" style="margin-top:10px">{{clgCount}}</h1>
             </div>
             <img src="/static/assets/img/profilepic.jpeg" alt="" class="profile-pic">
         </div>
@@ -46,13 +46,23 @@
         <!-- table content -->
         <div id="course-table">
             <table width="100%">
-                <tbody>
+                <thead>
                     <tr>
                         <th>Sl.No.</th>
                         <th>Course</th>
                         <th>No of Colleges</th>
                     </tr>
-                    
+                </thead>
+
+                <tbody>
+
+                    {% for i in range(sno)%}
+                    <tr>
+                        <td>{{i+1}}.</td>
+                        <td>{{details[i][0]}}</td>
+                        <td>{{details[i][1]}}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
