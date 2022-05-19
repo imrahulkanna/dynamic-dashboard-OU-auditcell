@@ -1,0 +1,145 @@
+.ou-sidebar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  /* width: 160px; Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+.ou-sidebar img {
+  max-width: 40%;
+
+  margin-left: 25%;
+}
+.ou-bar-item {
+  padding: 26px 13px 16px 6px;
+  text-align: left;
+  margin-left: 23%;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+.ou-bar-item:hover {
+  color: white;
+}
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap");
+
+.ou-font {
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+}
+.ou-bar-item-last {
+  position: absolute;
+  top: 85%;
+  margin-left: 23%;
+}
+.page-content {
+  margin-left: 20%; /*Same as width if the side-bar */
+  padding: 0px 10px;
+}
+.stat-box {
+  background-color: rgba(216, 182, 61, 1);
+  border-radius: 30px;
+  height: 101px;
+  position: relative;
+  width: 319px;
+  margin-left: 30px;
+}
+
+.stat-box .text {
+  left: 158px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 25px;
+  width: 152px;
+  color: white;
+}
+
+.stat-box .number {
+  left: 18px;
+  font-size: 72px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.stat-box:nth-child(1) {
+  background-color: rgba(216, 182, 61, 1);
+  border-radius: 30px;
+  height: 101px;
+  position: relative;
+  width: 240px;
+  margin-left: 30px;
+}
+.stat-box:nth-child(1) .text {
+  left: 120px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 25px;
+  width: 152px;
+  color: white;
+}
+
+.flex-row {
+  align-items: flex-start;
+  display: flex;
+  height: 103px;
+  margin-right: 42px;
+  margin-top: 34px;
+  min-width: 924px;
+  z-index: 2;
+}
+.flex-row .profile-pic {
+  height: 105px;
+  width: 105px;
+  border-radius: 50%;
+  /* margin-left: 700px; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 34px;
+  margin-right: 20px;
+}
+
+.page-content #course-table {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: rgba(216, 182, 61, 0.592);
+}
+th {
+  background-color: black;
+  color: white;
+}
+#myInput {
+  border-radius: 10px;
+  margin-left: 20px;
+  background-position: 10px 10px;
+  width: 92%;
+  font-size: 16px;
+  padding: 12px 20px 12px 15px;
+  border: 1px solid black;
+  margin-top: 25px;
+}
+
+tr>td>a {
+    text-decoration: none;
+    color: black;
+}
