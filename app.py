@@ -30,3 +30,28 @@ def home():
     clgCount=cursor2.fetchall()[0][0]
 
     return render_template('home.html',sno=sno,details=details,clgCount=clgCount)
+    
+
+@app.route('/program', methods=['POST', 'GET'])
+def program():
+    course = str(request.args.get('course'))
+    cursor = db.connection.cursor()
+    query = 'SELECT distinct clgcode, clgname, address FROM clglist WHERE program="{}"'.format(course)
+    cursor.execute(query)
+    details = cursor.fetchall()
+    sno = len(details)
+    return render_template('program.html',sno=sno, details=details,course=course)
+
+@app.route('/college')
+def college():
+    course = str(request.args.get('course'))
+    clgcode = int(request.args.get('clgcode'))
+    cursor = db.connection.cursor()
+    query = 'SELECT clgname,course,subcourse,intake FROM clglist WHERE program="{}" and clgcode={}'.format(course,clgcode)
+    cursor.execute(query)
+    details = cursor.fetchall()
+    sno = len(details)
+    return render_template('college.html', sno=sno, details=details, course=course,clgcode=clgcode)
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{details[0][0]}}</title>
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+  </head>
+  <body>
+    <style>
+      *{
+        text-align: center;
+      }
+        table td {
+            padding: 0.5rem;
+            border: 2px solid;
+        }
+        table th {
+            padding: 0.5rem;
+            border: 2px solid;
+        }
+      table{
+        margin: 0 auto;
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+	<script src="index.js"></script>
+    <h3>{{details[0][0]}}</h3>
+  <div>
+    <b>college code:</b>
+    {{clgcode}}
+  </div>
+  <!-- <div>
+    <b>website:</b>
+    <a href="https://www.nizamcollege.ac.in/courses-offered.html">https://www.nizamcollege.ac.in/courses-offered.html</a>
+  </div> -->
+  <div>
+      <b>Degree:</b>
+       {{course}}
+  </div>
+  
+  <h3>Courses:</h3>
+  <table >
+      <thead>
+        <th>S.No.</th>
+        <th>Course</th>
+        <th>Sub Course</th>
+        <th>Intake</th>
+      </thead>
+      <tbody>
+        {% for i in range(sno) %}
+        <tr>
+        <td>{{i+1}}.</td>
+        <td>{{details[i][1]}}</td>
+        <td>{{details[i][2]}}</td>
+        <td>{{details[i][3]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>  
+  </table>
+  </body>
+</html>
