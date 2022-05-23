@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="/static/assets/css/navbar.css">
+  <link rel="stylesheet" href="/static/assets/css/DropDown.css">
   <title>{{course}} Colleges List</title>
   <style type="text/css">
     body {
@@ -55,51 +56,77 @@
 </head>
 
 <body>
-        <!-- Start of hambugger button -->
-        <div class="topnav">
-            <a href="javascript:void(0);" class="icon" onclick="toggle()">
-                <i class="fa fa-bars"></i>
-            </a>
-            <div id="myLinks">
-                <a href="#news">Home</a>
-                <a href="#contact">Attendance</a>
-                <a href="#about">Log-out</a>
-            </div>
-        </div>
-        
-        <script>
-            function toggle() {
-                var x = document.getElementById("myLinks");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else {
-                    x.style.display = "block";
-                }
-            }
-        </script>
-        
-        <!-- End of hambugger button -->
-  <div style="text-align: center;margin: 20px 0px; font-size: 30px;">{{course}} Colleges List</div>
+  <!-- Start of hambugger button -->
+  <div class="topnav">
+    <a href="javascript:void(0);" class="icon" onclick="toggle()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <div id="myLinks">
+      <a href="#news">Home</a>
+      <a href="#contact">Attendance</a>
+      <a href="#about">Log-out</a>
+    </div>
+  </div>
+
+  <script>
+    function toggle() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+  </script>
+
+  <!-- End of hambugger button -->
+
+  {% if subcourse %}
+  <div style="text-align: center;margin: 20px 0px; font-size: 30px;">{{prgrm}} <span
+      style="color: red">{{subcourse}}</span> Colleges List</div>
+  {% else %}
+  <div style="text-align: center;margin: 20px 0px; font-size: 30px;">{{prgrm}} Colleges List</div>
+  {% endif %}
+  <!-- start of DropDown  -->
+  <div class="dropdown">
+    <button class="dropbtn">COURSES</button>
+    <div class="dropdown-content">
+
+      {% for i in courseDetails %}
+      <a href="/program?prgrm={{prgrm}}&subcourse={{i[0]}}">{{i[0]}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- end Of DropDown -->
+
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter College Name" title="Type in a name">
   <table id="myTable" width="100%">
     <thead class="row1">
       <th class="column0 style7 s">S.no</td>
-      <th class="column1 style8 s">Course</td>
+      <th class="column1 style8 s">Program</td>
       <th class="column2 style7 s">Coll. Code</td>
       <th class="column3 style9 s">College Name</td>
       <th class="column4 style10 s">Address</td>
+        {% if subcourse %}
+      <th>Course</th>
+      <th>Intake</th>
+      {%endif%}
     </thead>
     <tbody>
-        {% for i in range(sno) %}
-        <tr>
-            <td>{{i+1}}.</td>
-            <td>{{course}}</td>
-            <td>{{details[i][0]}}</td>
-            <td style="cursor: pointer;"
-                    onclick="window.open('/college?course={{course}}&clgcode={{details[i][0]}}');" id="clg">{{details[i][1]}}</td>
-            <td>{{details[i][2]}}</td>
-        </tr>
-        {% endfor %}
+      {% for i in range(sno) %}
+      <tr>
+        <td>{{i+1}}.</td>
+        <td>{{prgrm}}</td>
+        <td>{{details[i][0]}}</td>
+        <td style="cursor: pointer;" onclick="window.open('/college?prgrm={{prgrm}}&clgcode={{details[i][0]}}');"
+          id="clg">{{details[i][1]}}</td>
+        <td>{{details[i][2]}}</td>
+        {% if subcourse %}
+        <td>{{details[i][3]}}</td>
+        <td>{{details[i][5]}}</td>
+        {%endif%}
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
   <script>

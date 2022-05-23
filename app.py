@@ -1,12 +1,11 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-# import MySQLdb
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = '12345678'
 app.config['MYSQL_DB'] = 'auditcell'
 
 db = MySQL(app)
@@ -34,24 +33,49 @@ def home():
 
 @app.route('/program', methods=['POST', 'GET'])
 def program():
-    course = str(request.args.get('course'))
+    prgrm = str(request.args.get('prgrm'))
+    
     cursor = db.connection.cursor()
-    query = 'SELECT distinct clgcode, clgname, address FROM clglist WHERE program="{}"'.format(course)
+    query = 'SELECT distinct clgcode, clgname, address FROM clglist WHERE program="{}"'.format(prgrm)
     cursor.execute(query)
     details = cursor.fetchall()
     sno = len(details)
-    return render_template('program.html',sno=sno, details=details,course=course)
+
+    query2='SELECT distinct subcourse from clglist where program="{}"'.format(prgrm)
+    cursor.execute(query2)
+    courseDetails = cursor.fetchall()
+    courseCount=len(courseDetails)
+    
+    if request.args.get('subcourse'):
+        subcourse=str(request.args.get('subcourse'))
+        query3 = 'SELECT distinct clgcode, clgname, address,course,subcourse,intake FROM clglist WHERE program="{}" and subcourse="{}"'.format(prgrm,subcourse)
+        cursor.execute(query3)
+        details= cursor.fetchall()
+        sno=len(details)
+        return render_template('program.html',sno=sno,prgrm=prgrm, courseDetails=courseDetails,details=details,subcourse=subcourse)
+    
+    return render_template('program.html',sno=sno, details=details,prgrm=prgrm, courseDetails=courseDetails,courseCount=courseCount)
+
+# @app.route('/courseFilter')
+# def courseFilter():
+#         prgrm = str(request.args.get('prgrm'))
+#         subcourse=str(request.args.get('subcourse'))
+#         cursor = db.connection.cursor()
+#         query = 'SELECT clgname,course,subcourse,intake FROM clglist WHERE program="{}" and subcourse={}'.format(prgrm,subcourse)
+#         cursor.execute(query)
+#         details = cursor.fetchall()
+
 
 @app.route('/college')
 def college():
-    course = str(request.args.get('course'))
+    prgrm = str(request.args.get('prgrm'))
     clgcode = int(request.args.get('clgcode'))
     cursor = db.connection.cursor()
-    query = 'SELECT clgname,course,subcourse,intake FROM clglist WHERE program="{}" and clgcode={}'.format(course,clgcode)
+    query = 'SELECT clgname,course,subcourse,intake FROM clglist WHERE program="{}" and clgcode={}'.format(prgrm,clgcode)
     cursor.execute(query)
     details = cursor.fetchall()
     sno = len(details)
-    return render_template('college.html', sno=sno, details=details, course=course,clgcode=clgcode)
+    return render_template('college.html', sno=sno, details=details, prgrm=prgrm,clgcode=clgcode)
 
 if __name__ == '__main__':
     app.run(debug=True)
