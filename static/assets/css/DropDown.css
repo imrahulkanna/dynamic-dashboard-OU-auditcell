@@ -3,28 +3,41 @@
     color: white;
     padding: 16px;
     font-size: 16px;
+    font-weight: bold;
     border: none;
     cursor: pointer;
   }
   
   .dropdown {
-  top:6px;
-  right:10px;
+    top:20px;
+    right:10px;
     position: absolute;
-    
     display: inline-block;,
     
   }
   
   .dropdown-content {
-
     display: none;
     position: absolute;
     right:0;
     background-color: #f9f9f9;
     min-width: 225px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    height: 500px;
+    overflow-y: scroll;
     z-index: 1;
+  }
+
+  .dropdown-content #myInput2 {
+    box-sizing: border-box;
+    width: 96%;
+    margin: 8px 0px;
+    margin-left: 4px;
+    justify-content: center;
+    font-size: 16px;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid #ddd;
   }
   
   .dropdown-content a {

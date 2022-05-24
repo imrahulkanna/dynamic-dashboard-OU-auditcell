@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = '' # for no password
-app.config['MYSQL_PASSWORD'] = '12345678' # for password
+app.config['MYSQL_PASSWORD'] = '' # for no password
+# app.config['MYSQL_PASSWORD'] = '12345678' # for password
 app.config['MYSQL_DB'] = 'auditcell'
 
 db = MySQL(app)
@@ -42,7 +42,8 @@ def program():
     details = cursor.fetchall()
     sno = len(details)
 
-    query2='SELECT distinct subcourse from clglist where program="{}"'.format(prgrm)
+    #query2='SELECT distinct subcourse FROM clglist WHERE program="{}" ORDER BY subcourse'.format(prgrm)
+    query2 = 'select course,subcourse from clglist where program="{}" group by concat(course,subcourse)'.format(prgrm)
     cursor.execute(query2)
     courseDetails = cursor.fetchall()
     courseCount=len(courseDetails)

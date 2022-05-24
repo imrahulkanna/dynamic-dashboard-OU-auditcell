@@ -10,18 +10,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="../static/assets/js/script.js"></script>
   <style type="text/css">
     body {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     }
 
     #myInput {
-      background-image: url('/css/searchicon.png');
-      background-position: 10px 10px;
-      background-repeat: no-repeat;
       width: 96%;
-      font-size: 16px;
+      font-size: 20px;
       padding: 12px 20px 12px 40px;
       border: 1px solid black;
       margin-bottom: 12px;
@@ -85,17 +82,17 @@
 
   <!-- start of DropDown  -->
   <div class="dropdown">
-    <button class="dropbtn">COURSES</button>
-    <div class="dropdown-content">
-
+    <button class="dropbtn">Search Courses</button>
+    <div class="dropdown-content" id="myDropdown">
+        <input type="text" placeholder="Search by Course..." id="myInput2" onkeyup="courseSearch()">
       {% for i in courseDetails %}
-      <a href="/program?prgrm={{prgrm}}&subcourse={{i[0]}}">{{i[0]}}</a>
+      <a href="/program?prgrm={{prgrm}}&subcourse={{i[1]}}">{{i[0]}} - {{i[1]}}</a>
       {% endfor %}
     </div>
   </div>
   <!-- end Of DropDown -->
 
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter College Name" title="Type in a name">
+  <input type="text" id="myInput" onkeyup="clgSearch()" placeholder="Search by College Name/Address..." title="Type in a name">
   <table id="myTable" width="100%">
     <thead class="row1">
       <th class="column0 style7 s">S.no</td>
@@ -125,26 +122,6 @@
       {% endfor %}
     </tbody>
   </table>
-  <script>
-    function myFunction() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[3];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-  </script>
 </body>
 
 </html>
