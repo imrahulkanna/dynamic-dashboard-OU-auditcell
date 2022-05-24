@@ -73,9 +73,16 @@
   {% if subcourse %}
   <div style="text-align: center;margin: 20px 0px; font-size: 30px;">{{prgrm}} <span
       style="color: red">{{subcourse}}</span> Colleges List</div>
+  <p class="subcourseCount" style="text-align: center;font-weight: bold;font-size: 20px;margin-top:-6px;">
+    No. of Colleges= {{sno}}</p>
   {% else %}
   <div style="text-align: center;margin: 20px 0px; font-size: 30px;">{{prgrm}} Colleges List</div>
+  <p class="subcourseCount" style="text-align: center;font-weight: bold;font-size: 20px;margin-top:-6px;">
+    No. of Colleges= {{sno}}</p>
+  <p class="subcourseCount" style="text-align: center;font-weight: bold;font-size: 20px;margin-top:-6px;">
+    No. of Subcourses= {{courseDetails|length}}</p>
   {% endif %}
+
   <!-- start of DropDown  -->
   <div class="dropdown">
     <button class="dropbtn">COURSES</button>
