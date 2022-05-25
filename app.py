@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '' # for no password
-# app.config['MYSQL_PASSWORD'] = '12345678' # for password
+#app.config['MYSQL_PASSWORD'] = '' # for no password
+app.config['MYSQL_PASSWORD'] = '12345678' # for password
 app.config['MYSQL_DB'] = 'auditcell'
 
 db = MySQL(app)
@@ -67,7 +67,15 @@ def program():
 #         cursor.execute(query)
 #         details = cursor.fetchall()
 
-
+@app.route('/search')
+def search():
+     cursor = db.connection.cursor()
+     query = 'SELECT program,course,subcourse,clgname,address FROM clglist';
+     cursor.execute(query)
+     details = cursor.fetchall()
+     sno = len(details)
+     return render_template('searchClg.html',sno=sno,details=details)
+     
 @app.route('/college')
 def college():
     prgrm = str(request.args.get('prgrm'))

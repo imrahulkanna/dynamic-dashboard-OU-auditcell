@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="/static/assets/css/DropDown.css">
+    <title>Custom Search Colleges</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../static/assets/js/script.js"></script>
+
+    <!-- Scripts for SEARCH -->
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="application/javascript" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+
+    <!-- css for search -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+
+
+
+    <style type="text/css">
+        body {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+        /* #myInput {
+            width: 15%;
+            font-size: 20px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid black;
+            margin-bottom: 12px;
+        } */
+
+        thead input {
+            width: 96%;
+            padding: 3px;
+            box-sizing: border-box;
+
+        }
+
+        table {
+            table-layout: fixed;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid whitesmoke !important;
+            border-collapse: collapse !important;
+
+        }
+
+        th,
+        td {
+            padding: 8px !important;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: black !important;
+            font-size: 18px !important;
+            color: whitesmoke;
+        }
+
+        tr:hover td {
+            background-color: #ddd !important;
+            color: red !important;
+        }
+
+        tr:nth-child(odd) {
+            background-color: white !important;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(247, 234, 210) !important;
+        }
+
+        .searchDropdown {
+            width: 90%;
+        }
+
+        .searchHead.sorting:after,
+        .searchHead.sorting:before {
+            color: rgb(255, 255, 255) !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start of hambugger button -->
+    <div class="homeIcon" style="padding-top:14px;padding-left: 5px;position: absolute; top:8px;left: 2px; ">
+        <a href="/home" style="color: black!important;font-size: 20px; ">
+            <i class="fas fa-home" style="font-size: 28px; " aria-hidden="true"></i>
+            Home
+        </a>
+    </div>
+    <!-- End of hambugger button -->
+
+    <!-- start of DropDown  -->
+    <!-- <div class="dropdown">
+    <button class="dropbtn">Search Courses</button>
+    <div class="dropdown-content" id="myDropdown">
+        <input type="text" placeholder="Search by Course..." id="myInput2" onkeyup="courseSearch()">
+      {% for i in courseDetails %}
+      <a href="/program?prgrm={{prgrm}}&subcourse={{i[1]}}">{{i[0]}} - {{i[1]}}</a>
+      {% endfor %}
+    </div>
+  </div> -->
+    <!-- end Of DropDown -->
+
+    <div style="text-align: center;margin: 20px 0px; font-size: 30px;">SEARCH COLLEGE</div>
+
+    <!-- 
+    <input type="text" id="myInput" onkeyup="clgSearch()" placeholder="Search by College Name/Address..."
+        title="Type in a name"> -->
+    <!-- <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            //.appendTo(#searchTable thead) to bring searchBar to header/topside!
+            // $('#searchTable tfoot tr').appendTo(#searchTable thead tr);
+            $('#searchTable thead .searchHead').each(function () {
+                var title = $(this).text();
+                if (title != 'S.no')
+                    $(this).html('<input type="text" placeholder="Search ' + title + '"" />');
+            });
+
+            // DataTable
+            var table = $('#searchTable').DataTable({
+                initComplete: function () {
+                    // Apply the search
+
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+
+                            var text = 'input';
+                            $(text, this.header()).on('keyup change clear', function () {
+
+
+                                if (that.search() !== this.value) {
+                                    const searcher = this.value;
+                                    const searcher2 = searcher.replace(/\s/g, '');
+                                    that
+                                        .search(searcher2)
+                                        .draw();
+                                }
+                            });
+                        });
+                },
+            });
+        });
+    </script> -->
+
+    <table id="searchTable" width="100%" class="display">
+        <thead>
+            <tr>
+                <th style="width: 40px;">S.no</th>
+                <th style="width:12.5%;">Program</th>
+                <th style="width:12.5%;">Course</th>
+                <th style="width:13.5%;">SubCourse</th>
+                <th style="width:25%;">College Name</th>
+                <th style="width:25%;">Address</th>
+            </tr>
+            <tr>
+                <th id="S.no" class="searchHead" style="width: 40px; color: black;">S.no</th>
+                <th class="searchHead" style="width:12.5%;">Program</th>
+                <th class="searchHead" style="width:12.5%;">Course</th>
+                <th class="searchHead" style="width:13.5%;">SubCourse</th>
+                <th class="searchHead" style="width:25%;">College Name</th>
+                <th class="searchHead" style="width:25%;">Address</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+            {% for i in range(sno) %}
+            <tr>
+                <td>{{i+1}}.</td>
+                <td>{{details[i][0]}}</td>
+                <td>{{details[i][1]}}</td>
+                <td>{{details[i][2]}}</td>
+                <td>{{details[i][3]}}</td>
+                <td>{{details[i][4]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        <!-- <tfoot>
+            
+        </tfoot> -->
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#searchTable').DataTable({
+                initComplete: function () {
+                    this.api()
+                        .columns([1, 2, 3, 4, 5])
+                        .every(function () {
+                            var column = this;
+                            var select = $('<select class="searchDropdown"><option value=""></option></select>')
+                                .appendTo($(column.header()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function (d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
+            });
+        });
+
+    </script>
+</body>
+
+</html>
