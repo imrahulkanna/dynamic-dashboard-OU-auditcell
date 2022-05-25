@@ -39,9 +39,26 @@
   margin-left: 23%;
 }
 .page-content {
-  margin-left: 20%; /*Same as width if the side-bar */
+  /* margin-left: 20%; Same as width if the side-bar */
   padding: 0px 10px;
 }
+
+/* .page-content img {
+    max-width: 15%;
+    color: black;
+    margin-top: -30px;
+    margin-right: -10px;
+    margin-left: -7px;
+} */
+
+.page-content img {
+    max-width: 35%;
+    color: black;
+    margin-top: 2px;
+    margin-right: -10px;
+    margin-left: 17px;
+}
+
 .stat-box {
   background-color: rgba(216, 182, 61, 1);
   border-radius: 30px;
@@ -69,7 +86,7 @@
   width: 1px;
 }
 
-.stat-box:nth-child(1) {
+/* .stat-box:nth-child(1) {
   background-color: rgba(216, 182, 61, 1);
   border-radius: 30px;
   height: 101px;
@@ -84,17 +101,33 @@
   top: 25px;
   width: 152px;
   color: white;
-}
+} */
 
 .flex-row {
   align-items: flex-start;
   display: flex;
   height: 103px;
-  margin-right: 42px;
+  /* margin-right: 42px; */
   margin-top: 34px;
   min-width: 924px;
   z-index: 2;
 }
+
+.flex-row .custom-search {
+    margin-top: 58px;
+    margin-left: 80px;
+    background-color: black;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 100px;
+    text-decoration: none;
+}
+
+.flex-row .custom-search:hover {
+    background-color: #d8b63d;
+    color: black;
+}
+
 .flex-row .profile-pic {
   height: 105px;
   width: 105px;
@@ -132,7 +165,7 @@ th {
   border-radius: 10px;
   margin-left: 20px;
   background-position: 10px 10px;
-  width: 92%;
+  width: 96%;
   font-size: 16px;
   padding: 12px 20px 12px 15px;
   border: 1px solid black;

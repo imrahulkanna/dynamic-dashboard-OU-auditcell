@@ -187,7 +187,8 @@
                 <td>{{details[i][0]}}</td>
                 <td>{{details[i][1]}}</td>
                 <td>{{details[i][2]}}</td>
-                <td>{{details[i][3]}}</td>
+                <td style="cursor: pointer;" onclick="window.open('/college?prgrm={{details[i][0]}}&clgcode={{details[i][5]}}');"
+          id="clg">{{details[i][3]}}</td>
                 <td>{{details[i][4]}}</td>
             </tr>
             {% endfor %}

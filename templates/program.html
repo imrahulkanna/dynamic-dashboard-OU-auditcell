@@ -85,9 +85,10 @@
     <button class="dropbtn">Search Courses</button>
     <div class="dropdown-content" id="myDropdown">
         <input type="text" placeholder="Search by Course..." id="myInput2" onkeyup="courseSearch()">
-      {% for i in courseDetails %}
-      <a href="/program?prgrm={{prgrm}}&subcourse={{i[1]}}">{{i[0]}} - {{i[1]}}</a>
-      {% endfor %}
+        <a href="/program?prgrm={{prgrm}}"></a>
+        {% for i in courseDetails %}
+        <a href="/program?prgrm={{prgrm}}&subcourse={{i[1]}}">{{i[0]}} - {{i[1]}}</a>
+        {% endfor %}
     </div>
   </div>
   <!-- end Of DropDown -->
