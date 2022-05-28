@@ -64,7 +64,7 @@
   border-radius: 30px;
   height: 101px;
   position: relative;
-  width: 319px;
+  width: 349px;
   margin-left: 30px;
 }
 
@@ -115,9 +115,10 @@
 
 .flex-row .custom-search {
     margin-top: 58px;
-    margin-left: 80px;
+    margin-left: 30px;
     background-color: black;
     color: white;
+    font-size: 18px;
     padding: 8px 10px;
     border-radius: 100px;
     text-decoration: none;
@@ -127,7 +128,7 @@
     background-color: #d8b63d;
     color: black;
 }
-
+/* 
 .flex-row .profile-pic {
   height: 105px;
   width: 105px;
@@ -138,7 +139,7 @@
   right: 0;
   margin-top: 34px;
   margin-right: 20px;
-}
+} */
 
 .page-content #course-table {
   margin-left: 20px;

@@ -79,8 +79,14 @@
             background-color: rgb(247, 234, 210) !important;
         }
 
+
         .searchDropdown {
             width: 90%;
+
+        }
+
+        .clgCode select {
+            width: 80%;
         }
 
         .searchHead.sorting:after,
@@ -164,6 +170,7 @@
                 <th style="width:12.5%;">Program</th>
                 <th style="width:12.5%;">Course</th>
                 <th style="width:13.5%;">SubCourse</th>
+                <th style="width:8%;">Clg Code</th>
                 <th style="width:25%;">College Name</th>
                 <th style="width:25%;">Address</th>
             </tr>
@@ -172,8 +179,9 @@
                 <th class="searchHead" style="width:12.5%;">Program</th>
                 <th class="searchHead" style="width:12.5%;">Course</th>
                 <th class="searchHead" style="width:13.5%;">SubCourse</th>
+                <th class="searchHead clgCode" style="width:8%;">Clg Code</th>
                 <th class="searchHead" style="width:25%;">College Name</th>
-                <th class="searchHead" style="width:25%;">Address</th>
+                <th class="searchHead" style="width:18%;">Address</th>
             </tr>
 
         </thead>
@@ -187,9 +195,11 @@
                 <td>{{details[i][0]}}</td>
                 <td>{{details[i][1]}}</td>
                 <td>{{details[i][2]}}</td>
-                <td style="cursor: pointer;" onclick="window.open('/college?prgrm={{details[i][0]}}&clgcode={{details[i][5]}}');"
-          id="clg">{{details[i][3]}}</td>
-                <td>{{details[i][4]}}</td>
+                <td>{{details[i][3]}}</td>
+                <td style="cursor: pointer;"
+                    onclick="window.open('/college?prgrm={{details[i][0]}}&clgcode={{details[i][3]}}');" id="clg">
+                    {{details[i][4]}}</td>
+                <td>{{details[i][5]}}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -204,7 +214,7 @@
             $('#searchTable').DataTable({
                 initComplete: function () {
                     this.api()
-                        .columns([1, 2, 3, 4, 5])
+                        .columns([1, 2, 3, 4, 5, 6])
                         .every(function () {
                             var column = this;
                             var select = $('<select class="searchDropdown"><option value=""></option></select>')
