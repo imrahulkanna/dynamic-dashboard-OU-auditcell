@@ -120,7 +120,7 @@
     <!-- end Of DropDown -->
 
     <div style="text-align: center;margin: 20px 0px; font-size: 30px;">SEARCH COLLEGE</div>
-
+    <p style="text-align: center;margin: 20px 0px; font-size: 24px;"> No. of Colleges= <span id="clgCount" onclick="customSearch();">{{clgCount}}</span></p>
     <!-- 
     <input type="text" id="myInput" onkeyup="clgSearch()" placeholder="Search by College Name/Address..."
         title="Type in a name"> -->
@@ -162,6 +162,13 @@
             });
         });
     </script> -->
+    <!-- Above was the old Script for textBased Searching -->
+
+
+    <!-- <div class="globalSearch" style="float: right;">
+        <input type="text" placeholder="Search..." id="gsearchId" onkeyup="globalSearchfn()">
+    </div> -->
+
 
     <table id="searchTable" width="100%" class="display">
         <thead>
@@ -176,12 +183,12 @@
             </tr>
             <tr>
                 <th id="S.no" class="searchHead" style="width: 40px; color: black;">S.no</th>
-                <th class="searchHead" style="width:12.5%;">Program</th>
-                <th class="searchHead" style="width:12.5%;">Course</th>
-                <th class="searchHead" style="width:13.5%;">SubCourse</th>
-                <th class="searchHead clgCode" style="width:8%;">Clg Code</th>
-                <th class="searchHead" style="width:25%;">College Name</th>
-                <th class="searchHead" style="width:18%;">Address</th>
+                <th class="searchHead" onchange="customSearch()" style="width:12.5%;">Program</th>
+                <th class="searchHead" onchange="customSearch()"style="width:12.5%;">Course</th>
+                <th class="searchHead" onchange="customSearch()"style="width:13.5%;">SubCourse</th>
+                <th class="searchHead  clgCode" onchange="customSearch()" style="width:8%;">Clg Code</th>
+                <th class="searchHead" onchange="customSearch()"style="width:25%;">College Name</th>
+                <th class="searchHead" onchange="customSearch()"style="width:18%;">Address</th>
             </tr>
 
         </thead>
@@ -211,7 +218,11 @@
 
     <script>
         $(document).ready(function () {
+
             $('#searchTable').DataTable({
+                paging: false,
+            ordering: false,
+            info: false,
                 initComplete: function () {
                     this.api()
                         .columns([1, 2, 3, 4, 5, 6])

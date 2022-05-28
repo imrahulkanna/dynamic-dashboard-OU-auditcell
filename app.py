@@ -74,7 +74,10 @@ def search():
      cursor.execute(query)
      details = cursor.fetchall()
      sno = len(details)
-     return render_template('searchClg.html',sno=sno,details=details)
+     clgCount = set()
+     for i in range(sno):
+         clgCount.add(details[i][3])
+     return render_template('searchClg.html',sno=sno,clgCount=len(clgCount),details=details)
 
 @app.route('/college')
 def college():
