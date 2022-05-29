@@ -219,9 +219,8 @@
     <script>
         $(document).ready(function () {
 
-            $('#searchTable').DataTable({
+            var table=$('#searchTable').DataTable({
                 paging: false,
-                ordering: false,
                 info: false,
                 initComplete: function () {
                     this.api()
@@ -246,6 +245,8 @@
                         });
                 },
             });
+            table.on('search',customSearch);//when searchBox used it'll fire-up CustomSearch
+                                        //type 'func_name' only instead of 'func_name()'
         });
 
     </script>
