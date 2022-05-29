@@ -66,7 +66,6 @@ def program():
     details = cursor.fetchall()
     sno = len(details)
 
-    #query2='SELECT distinct subcourse FROM clglist WHERE program="{}" ORDER BY subcourse'.format(prgrm)
     query2 = 'select course,subcourse from clglist where program="{}" group by concat(course,subcourse)'.format(prgrm)
     cursor.execute(query2)
     courseDetails = cursor.fetchall()

@@ -82,7 +82,9 @@ function customSearch() {
         'programtag':'Program',
         'coursetag':'Course',
         'subcoursetag':'SubCourse'
-    }; // to display more summary add the required ids into the dictionary
+    }; // to display more summary add the required Ids into the dictionary/object
+       // here keys are Ids associated to the summary <p> tags in custom search page
+       // values are the text to be displayed
 
     var td = tr[1].getElementsByTagName('td');
     var opt = document.getElementsByClassName('searchDropdown') 
