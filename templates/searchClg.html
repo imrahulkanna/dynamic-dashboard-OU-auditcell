@@ -107,68 +107,10 @@
     </div>
     <!-- End of hambugger button -->
 
-    <!-- start of DropDown  -->
-    <!-- <div class="dropdown">
-    <button class="dropbtn">Search Courses</button>
-    <div class="dropdown-content" id="myDropdown">
-        <input type="text" placeholder="Search by Course..." id="myInput2" onkeyup="courseSearch()">
-      {% for i in courseDetails %}
-      <a href="/program?prgrm={{prgrm}}&subcourse={{i[1]}}">{{i[0]}} - {{i[1]}}</a>
-      {% endfor %}
-    </div>
-  </div> -->
-    <!-- end Of DropDown -->
 
     <div style="text-align: center;margin: 20px 0px; font-size: 30px;">SEARCH COLLEGE</div>
     <p style="text-align: center;margin: 20px 0px; font-size: 24px;"> No. of Colleges= <span id="clgCount" onclick="customSearch();">{{clgCount}}</span></p>
-    <!-- 
-    <input type="text" id="myInput" onkeyup="clgSearch()" placeholder="Search by College Name/Address..."
-        title="Type in a name"> -->
-    <!-- <script>
-        $(document).ready(function () {
-            // Setup - add a text input to each footer cell
-            //.appendTo(#searchTable thead) to bring searchBar to header/topside!
-            // $('#searchTable tfoot tr').appendTo(#searchTable thead tr);
-            $('#searchTable thead .searchHead').each(function () {
-                var title = $(this).text();
-                if (title != 'S.no')
-                    $(this).html('<input type="text" placeholder="Search ' + title + '"" />');
-            });
-
-            // DataTable
-            var table = $('#searchTable').DataTable({
-                initComplete: function () {
-                    // Apply the search
-
-                    this.api()
-                        .columns()
-                        .every(function () {
-                            var that = this;
-
-                            var text = 'input';
-                            $(text, this.header()).on('keyup change clear', function () {
-
-
-                                if (that.search() !== this.value) {
-                                    const searcher = this.value;
-                                    const searcher2 = searcher.replace(/\s/g, '');
-                                    that
-                                        .search(searcher2)
-                                        .draw();
-                                }
-                            });
-                        });
-                },
-            });
-        });
-    </script> -->
-    <!-- Above was the old Script for textBased Searching -->
-
-
-    <!-- <div class="globalSearch" style="float: right;">
-        <input type="text" placeholder="Search..." id="gsearchId" onkeyup="globalSearchfn()">
-    </div> -->
-
+  
 
     <table id="searchTable" width="100%" class="display">
         <thead>
@@ -211,9 +153,6 @@
             {% endfor %}
         </tbody>
 
-        <!-- <tfoot>
-            
-        </tfoot> -->
     </table>
 
     <script>
