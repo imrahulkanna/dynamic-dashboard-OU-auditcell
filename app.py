@@ -13,7 +13,7 @@ app.config['MYSQL_DB'] = 'auditcell'
 
 db = MySQL(app)
 
-@app.route('/home',methods=['POST','GET'])
+@app.route('/',methods=['POST','GET'])
 def home():
     cursor = db.connection.cursor()
     cursor2 = db.connection.cursor()
