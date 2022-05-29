@@ -94,6 +94,17 @@
             color: rgb(255, 255, 255) !important;
             opacity: 1 !important;
         }
+
+        .dataTables_filter {
+            position: absolute!important;
+
+            top: -50px!important;
+            right: 0px!important;
+        }
+        .dataTables_filter input {
+            background-color:rgba(201, 246, 248, 0.388)!important;
+            width:280px;
+        }
     </style>
 </head>
 
@@ -109,8 +120,9 @@
 
 
     <div style="text-align: center;margin: 20px 0px; font-size: 30px;">SEARCH COLLEGE</div>
-    <p style="text-align: center;margin: 20px 0px; font-size: 24px;"> No. of Colleges= <span id="clgCount" onclick="customSearch();">{{clgCount}}</span></p>
-  
+    <p style="text-align: center;margin: 20px 0px; font-size: 24px;"> No. of Colleges= <span id="clgCount"
+            onclick="customSearch();">{{clgCount}}</span></p>
+
 
     <table id="searchTable" width="100%" class="display">
         <thead>
@@ -125,12 +137,12 @@
             </tr>
             <tr>
                 <th id="S.no" class="searchHead" style="width: 40px; color: black;">S.no</th>
-                <th class="searchHead" onchange="customSearch()" style="width:12.5%;">Program</th>
-                <th class="searchHead" onchange="customSearch()"style="width:12.5%;">Course</th>
-                <th class="searchHead" onchange="customSearch()"style="width:13.5%;">SubCourse</th>
-                <th class="searchHead  clgCode" onchange="customSearch()" style="width:8%;">Clg Code</th>
-                <th class="searchHead" onchange="customSearch()"style="width:25%;">College Name</th>
-                <th class="searchHead" onchange="customSearch()"style="width:18%;">Address</th>
+                <th class="searchHead" onchange="customSearch()" style="width:12.5%;"></th>
+                <th class="searchHead" onchange="customSearch()" style="width:12.5%;"></th>
+                <th class="searchHead" onchange="customSearch()" style="width:13.5%;"></th>
+                <th class="searchHead  clgCode" onchange="customSearch()" style="width:8%;"></th>
+                <th class="searchHead" onchange="customSearch()" style="width:25%;"></th>
+                <th class="searchHead" onchange="customSearch()" style="width:18%;"></th>
             </tr>
 
         </thead>
@@ -158,9 +170,9 @@
     <script>
         $(document).ready(function () {
 
-            var table=$('#searchTable').DataTable({
+            var table = $('#searchTable').DataTable({
                 paging: false,
-                info: false,
+                info: false, //we used them to remove paging etc.
                 initComplete: function () {
                     this.api()
                         .columns([1, 2, 3, 4, 5, 6])
@@ -184,8 +196,10 @@
                         });
                 },
             });
-            table.on('search',customSearch);//when searchBox used it'll fire-up CustomSearch
-                                        //type 'func_name' only instead of 'func_name()'
+            table.on('search', customSearch);//when searchBox used it'll fire-up CustomSearch
+            //type 'func_name' only instead of 'func_name()'
+
+
         });
 
     </script>
