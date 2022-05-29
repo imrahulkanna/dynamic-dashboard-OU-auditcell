@@ -106,22 +106,45 @@
 .flex-row {
   align-items: flex-start;
   display: flex;
-  height: 103px;
+  height: 150px;
   /* margin-right: 42px; */
   margin-top: 34px;
   min-width: 924px;
   z-index: 2;
+  /* border: 1px solid red; */
 }
 
+.flex-row .button-box {
+    margin-right: 5px;
+    height: fit-content;
+    float: right;
+    /* border: 1px solid red; */
+    padding-left: 80px;
+}
+
+.flex-row .fa-user-circle {
+    font-size: 75px;
+    float: right;
+    margin-bottom: 5px;
+}
+
+.flex-row .admin-logged {
+    color: #d8b63d;
+}
+
+
 .flex-row .custom-search {
-    margin-top: 58px;
-    margin-left: 30px;
+    /* margin-top: 58px;
+    margin-left: 30px; */
+    /* position: absolute; */
+    display: block;
     background-color: black;
     color: white;
     font-size: 18px;
     padding: 8px 10px;
     border-radius: 100px;
     text-decoration: none;
+    float: right;
 }
 
 .flex-row .custom-search:hover {
@@ -133,7 +156,7 @@
   height: 105px;
   width: 105px;
   border-radius: 50%;
-  /* margin-left: 700px; */
+  margin-left: 700px;
   position: absolute;
   top: 0;
   right: 0;

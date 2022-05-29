@@ -1,3 +1,5 @@
+/* start of course search dropdown */
+
 .dropbtn {
     background-color: rgb(217,181,61);
     color: white;
@@ -12,8 +14,7 @@
     top:20px;
     right:10px;
     position: absolute;
-    display: inline-block;,
-    
+    display: inline-block;
   }
   
   .dropdown-content {
@@ -57,3 +58,60 @@
   .dropdown:hover .dropbtn {
     background-color: rgb(217,181,61);
   }
+
+  /* end of course search drop down */
+
+/* ------------------------------------------------------------------------------------------- */
+
+  /* start of admin drop down */
+
+  .dropdown1 {
+      position: relative;
+  }
+
+  .dropdown1-content {
+      display: none;
+      right: 0;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+  }
+
+  .dropdown1-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+  }
+
+  .dropdown1-content a:hover {
+      background-color: #ddd;
+      text-align: center;
+  }
+
+  .dropdown1:hover .dropdown1-content {
+      display: block;
+  }
+
+  .dropdown1:hover .dropbtn1 {
+      background-color: #3e8e41;
+  }
+
+  .flex-row .login-btn, .flex-row .logout-btn {
+      background-color: #d8b63d;
+      border: none;
+      /* font-size: 18px;
+      padding: 10px 25px; */
+
+  }
+
+  .flex-row .login-btn:hover {
+      background-color: black;
+      color: white;
+  }
+
+
+  /* end of admin dropdown */
