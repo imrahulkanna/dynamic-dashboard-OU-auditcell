@@ -74,4 +74,30 @@ function customSearch() {
     else {
         document.getElementById("clgCount").innerHTML = 0;
     }
+
+// above code displays the count of distinct colleges for options selected
+// below code displays the selected dropdown option as summary
+
+    var avail_opts = {
+        'programtag':'Program',
+        'coursetag':'Course',
+        'subcoursetag':'SubCourse'
+    }; // to display more summary add the required ids into the dictionary
+
+    var td = tr[1].getElementsByTagName('td');
+    var opt = document.getElementsByClassName('searchDropdown') 
+    
+    for (i = 0; i < Object.keys(avail_opts).length;i++) {
+        var opt_selected = opt[i].options[opt[i].selectedIndex].text;
+        if (opt_selected === 'ALL') {
+            document.getElementById(Object.keys(avail_opts)[i]).innerHTML = ''
+        }
+        else if (opt_selected!='ALL') {
+            document.getElementById(Object.keys(avail_opts)[i]).innerHTML = avail_opts[Object.keys(avail_opts)[i]]+' Selected: ' + opt_selected
+        
+            if (Object.keys(avail_opts)[i] === 'coursetag') {
+                document.getElementById(Object.keys(avail_opts)[i]).innerHTML += "  |   "
+            }
+        }
+    }
 }
