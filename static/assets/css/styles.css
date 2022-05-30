@@ -145,6 +145,7 @@
     border-radius: 100px;
     text-decoration: none;
     float: right;
+    width:180px;
 }
 
 .flex-row .custom-search:hover {
