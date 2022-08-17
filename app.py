@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 app.secret_key = 'auditcell'
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '127.0.0.1' # use when in linux distros
+# app.config['MYSQL_HOST'] = 'localhost' 
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '' # for no password
 # app.config['MYSQL_PASSWORD'] = '12345678' # for password
