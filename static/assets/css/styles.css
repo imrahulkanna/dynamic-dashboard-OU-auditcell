@@ -62,24 +62,27 @@
 .stat-box {
   background-color: rgba(216, 182, 61, 1);
   border-radius: 30px;
-  height: 101px;
+  height: 91px;
   position: relative;
   width: 349px;
   margin-left: 30px;
 }
 
 .stat-box .text {
-  left: 158px;
+  left: 118px !important;
   letter-spacing: 0;
   position: absolute;
-  top: 25px;
+  top: 15px;
   width: 152px;
   color: white;
+}
+.stat-box .prgrmText{
+   left: 98px !important;
 }
 
 .stat-box .number {
   left: 18px;
-  font-size: 72px;
+  font-size: 55px;
   letter-spacing: 0;
   position: absolute;
   top: 0;
