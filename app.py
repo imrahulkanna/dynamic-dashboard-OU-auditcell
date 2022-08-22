@@ -62,7 +62,7 @@ def program():
     prgrm = str(request.args.get('prgrm'))
     
     cursor = db.connection.cursor()
-    query = 'SELECT distinct clgcode, clgname, address FROM clglist WHERE program="{}"'.format(prgrm)
+    query = 'select clgcode, clgname, address from clglist where program="{}" group by clgcode'.format(prgrm)
     cursor.execute(query)
     details = cursor.fetchall()
     sno = len(details)
