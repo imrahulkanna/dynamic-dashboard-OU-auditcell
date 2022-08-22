@@ -1,8 +1,11 @@
-/* drop database auditcell; */
+#creating the database
 create database auditcell;
-
+#use and access the database
 use auditcell;
 
+#-----------------------------------------------------------------------------------------------------------------------------#
+
+#create table to store the details of all colleges
 CREATE TABLE IF NOT EXISTS clglist (
     `program` VARCHAR(100) CHARACTER SET utf8,
     `clgcode` INT,
@@ -11,7 +14,7 @@ CREATE TABLE IF NOT EXISTS clglist (
     `course` VARCHAR(100) CHARACTER SET utf8,
     `subcourse` VARCHAR(100) CHARACTER SET utf8,
     `optioncode` INT,
-    `intake` INT
+    `intake` NUMERIC
 );
 INSERT INTO clglist VALUES
     ('5YEARS INTEGRATED MBA',1302,'Auroras PG Collage (MBA), Ramanthapur, Hyderabad',' Ramanthapur, Hyderabad','5YRS IMBA','Master of Applied Management',683,60.0),
@@ -39,22 +42,22 @@ INSERT INTO clglist VALUES
     ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','Mechanical',736,120.0),
     ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','Bio-Technology',805,60.0),
     ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','Chemical Engg.',802,60.0),
-    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','Artificial Intelligence & Data Science',NULL,60.0),
-    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','CSE (Artificial Intelligence & Machine Learning)',NULL,60.0),
-    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','CSE (IoT & Cyber Security Including Block Chain Technology)',NULL,60.0),
+    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','Artificial Intelligence and Data Science',NULL,60.0),
+    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','CSE (Artificial Intelligence and Machine Learning)',NULL,60.0),
+    ('B.E-B.Tech',1601,'Chaitanya Bharathi Institute of Technology , Gandipet , Hyderabad',' Gandipet , Hyderabad','B.E.','CSE (IoT and Cyber Security Including Block Chain Technology)',NULL,60.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','Civil',732,60.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','CSE',733,120.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','ECE',735,180.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','EEE',734,60.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','I.T',737,180.0),
     ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031','B.E.','Mechanical',736,120.0),
-    ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 032',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 032','B.E.','CSE (Artificial Intelligence & Machine Learning)',NULL,60.0),
+    ('B.E-B.Tech',1602,'Vasavi College of Engineering , 9-5-81, Ibrahimbagh,Hyderabad, AP-500 031',' 9-5-81, Ibrahimbagh,Hyderabad, AP-500 032','B.E.','CSE (Artificial Intelligence and Machine Learning)',NULL,60.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','Civil',732,120.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','CSE',733,90.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','ECE',735,90.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','EEE',734,60.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','I.T',737,60.0),
-    ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','Electronics & Instrumentation',739,40.0),
+    ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','Electronics and Instrumentation',739,40.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','Mechanical',736,120.0),
     ('B.E-B.Tech',1603,'Deccan College of Engineering and Technology , Nampally , Hyderabad',' Nampally , Hyderabad','B.E.','ProductionEngineering',738,40.0),
     ('B.E-B.Tech',1604,'Muffakham Jah College of Engineering and Technology , Banjara Hills , Hyderabad',' Banjara Hills , Hyderabad','B.E.','Civil',732,120.0),
@@ -69,11 +72,11 @@ INSERT INTO clglist VALUES
     ('B.E-B.Tech',1605,'ISL Engineering College, Chandrayangutta, Bandlaguda, Hyderabad',' Chandrayangutta, Bandlaguda, Hyderabad','B.E.','ECE',735,30.0),
     ('B.E-B.Tech',1605,'ISL Engineering College, Chandrayangutta, Bandlaguda, Hyderabad',' Chandrayangutta, Bandlaguda, Hyderabad','B.E.','I.T',737,60.0),
     ('B.E-B.Tech',1605,'ISL Engineering College, Chandrayangutta, Bandlaguda, Hyderabad',' Chandrayangutta, Bandlaguda, Hyderabad','B.E.','Mechanical',736,60.0),
-    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous) ,Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','Computer Engineering',740,60.0),
+    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','Computer Engineering',740,60.0),
     ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','CSE',733,180.0),
-    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous) ,Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','CSE(Artificial Intelligence and Data Science)',747,60.0),
+    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','CSE(Artificial Intelligence and Data Science)',747,60.0),
     ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','ECE',735,120.0),
-    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous) ,Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','EEE',734,60.0),
+    ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','EEE',734,60.0),
     ('B.E-B.Tech',1606,'Stanley College of Engineering and Technology for Women (Autonomous),Chapel Road, Abids , Hyderabad','Chapel Road, Abids , Hyderabad','B.E.','I.T',737,120.0),
     ('B.E-B.Tech',1607,'Methodist College of Engineeringand Technology ,King Koti Road, Abids , Hyderabad','King Koti Road, Abids , Hyderabad','B.E.','Civil',732,60.0),
     ('B.E-B.Tech',1607,'Methodist College of Engineeringand Technology ,King Koti Road, Abids , Hyderabad','King Koti Road, Abids , Hyderabad','B.E.','CSE',733,120.0),
@@ -116,7 +119,7 @@ INSERT INTO clglist VALUES
     ('B.E-B.Tech',2452,'Swathi Institute of Technology and Science, Anajpur, Near RFC, Hayathnagar, RR Dist',' Anajpur, Near RFC, Hayathnagar, RR Dist','B.E.','Mechanical',736,60.0),
     ('B.E-B.Tech',2453,'Neil Gogte Institute of Technology, Kachawanisingaram (V), Ghatkesar',' Kachawanisingaram (V), Ghatkesar','B.E.','CSE',733,180.0),
     ('B.E-B.Tech',2453,'Neil Gogte Institute of Technology, Kachawanisingaram (V), Ghatkesar',' Kachawanisingaram (V), Ghatkesar','B.E.','CSE(Artificial Intelligence and Machine Learning)',748,120.0),
-    ('B.Ed.Sp.Edn',1063,'Ali Yavar Jung National Institute For Hearing Handicapped, Hasmatpet Rd, Manovikas Nagar, Bowenpally, Telangana',' Hasmatpet Rd, Manovikas Nagar, Bowenpally, Telangana','B.Ed.Sp.Edn','B.Ed  Spl. Edn.  Hearing Impaired',706,31.0),
+    ('B.Ed.Sp.Edn',1063,'Ali Yavar Jung National Institute For Hearing Handicapped, Hasmatpet Rd, Manovikas Nagar, Bowenpally, Telangana',' Hasmatpet Rd, Manovikas Nagar, Bowenpally, Telangana','B.Ed.Sp.Edn','B.Ed  Spl. Edn. Hearing Impaired',706,31.0),
     ('B.Ed.Sp.Edn',1099,'Hellen Keller Institute of Research for the Disabled Children, RK Puram, Secunderabad',' RK Puram, Secunderabad','B.Ed.Sp.Edn','B.Ed Spl. Edn. Hearing Impaired',706,29.0),
     ('B.Ed.Sp.Edn',1255,'National Institute for mentaly Handicapped, Manovikas Nagar, Secunderabad',' Manovikas Nagar, Secunderabad','B.Ed.Sp.Edn','Mental Retardation/Intellectual Disability',707,25.0),
     ('B.Ed.Sp.Edn',1266,'Sweekar Academy of Rehabilitation Sciences, Secunderabad',' Secunderabad','B.Ed.Sp.Edn','B.Ed Spl. Edn. Hearing Impaired',706,29.0),
@@ -614,12 +617,12 @@ INSERT INTO clglist VALUES
     ('MBA(Day)',6173,'Vinayaka College of I.T. and Business Management,Kondapak, Medak Dist.','Kondapak, Medak Dist.','MBA(Day)','MBA(Day)',672,180.0),
     ('MBA(Day)',6174,'Sri Balaji P.G.College , Duddeda , Medak',' Duddeda , Medak','MBA(Day)','MBA(Day)',672,60.0),
     ('MBA(Day)',9999,'Avanthi Degree and PG College, Narayanaguda, above Honda Showroom Hyderabad',' Narayanaguda, above Honda Showroom Hyderabad','MBA(Day)','MBA(Day)',672,60.0),
-    ('MBA(Day)',NULL,'Wesley P.G College 145, Mc Intyre Road, Secundrabad, 500003','145, Mc Intyre Road, Secundrabad, 500003','MBA(Day)','MBA(Day)',672,180.0),
+    ('MBA(Day)',0001,'Wesley P.G College 145, Mc Intyre Road, Secundrabad, 500003','145, Mc Intyre Road, Secundrabad, 500003','MBA(Day)','MBA(Day)',672,180.0),
     ('MBA(Day)',1246,'Vivek Vardhani Degree College (Day), Jambagh, Hyderabad','Jambagh, Hyderabad','MBA(Day)','MBA(Day)',672,108.0),
     ('MBA(Evening)',1004,'University College of Commerce Business Management, Osmania University, Hyderabad',' Osmania University, Hyderabad','MBA(Evening)','MBA(Evening)',673,44.0),
     ('MBA(Evening)',1302,'Auroras PG Collage (MBA), Ramanthapur, Hyderabad',' Ramanthapur, Hyderabad','MBA(Evening)','MBA(Evening)',673,120.0),
     ('MBA(Tech.Mgt.)Day',1004,'University College of Commerce Business Management, Osmania University, Hyderabad',' Osmania University, Hyderabad','MBA(Tech.Mgt.)Day','MBA(Tech.Mgt.)Day',675,48.0),
-    ('MCA',NULL,'Wesley P.G College 145, Mc Intyre Road, Secundrabad, 500003','145, Mc Intyre Road, Secundrabad, 500004','MCA','MCA',862,120.0),
+    ('MCA',0000,'Wesley P.G College 145, Mc Intyre Road, Secundrabad, 500003','145, Mc Intyre Road, Secundrabad, 500004','MCA','MCA',862,120.0),
     ('MCA',1053,'A.V. College of Arts, Science and Commerce, Gaganmahal, Hyderabad',' Science and Commerce, Gaganmahal, Hyderabad','MCA','MCA',862,60.0),
     ('MCA',1117,'Loyola Academy Degree and P.G. College, Old Alwal, Hyderabad',' Old Alwal, Hyderabad','MCA','MCA',862,60.0),
     ('MCA',1135,'N.B. Science College, Charkaman, Hyderabad',' Charkaman, Hyderabad','MCA','MCA',862,60.0),
@@ -2752,7 +2755,7 @@ INSERT INTO clglist VALUES
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Micro Biology-Chemistry-Applied Nutrition',449,2.0),
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Micro Biology-Zoology-Computer Science',450,9.0),
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Microbiology/Zoology/Chemistry',457,15.0),
-    ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Botany/Chmeistry/AppliedNutrition',463,5.0),
+    ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Botany/Chemistry/AppliedNutrition',463,5.0),
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Zoology/Chemistry/AppliedNutrition',464,6.0),
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Mathematics/Statistics/ComputerScience',467,63.0),
     ('UG',1070,'BJR Govt. Degree College, Vittalwadi, Narayanaguda, Hyderabad',' Vittalwadi, Narayanaguda, Hyderabad','B.SC','Mathematics/Physics/ComputerScience',468,93.0),
@@ -3982,27 +3985,40 @@ INSERT INTO clglist VALUES
     ('UG(ASLP)',1687,'MAA Institute of Speech and Hearing','-','B.ASLP','Audio,SpeechandLanguagePathology(ASLP)',501,26.0),
     ('UG(ASLP)',2028,'Sweekar Degree Colege of ASLP , Tandur , Ranga Reddy',' Tandur , Ranga Reddy','B.ASLP','Audio,SpeechandLanguagePathology(ASLP)',501,20.0);
 
-select * from clglist;
+#select * from clglist;
 
-/* The below table is regarding the login credentials table */
+#-----------------------------------------------------------------------------------------------------------------------------#
 
+#table to store login credentials for admins
 CREATE TABLE IF NOT EXISTS logincred (
     `username` VARCHAR(100) CHARACTER SET utf8 PRIMARY KEY,
     `password` VARCHAR(100) CHARACTER SET utf8
     );
-    
-select * from logincred;
 
 INSERT INTO logincred VALUES
 ('admin1','osmania@auditcell'),
 ('admin2','osmania@auditcell');
+   
+#select * from logincred;
 
-/*
-Notes for database Admin:
+#-----------------------------------------------------------------------------------------------------------------------------#
 
- INSERT INTO clglist VALUES
-    ('program',clgcode,'clgname','address','course','subcourse',optcode,intake),   
- 
- To display the table values, use the below query
-	select * from tableName;
-*/
+#Syntax to insert new value into table clglist
+
+/*INSERT INTO clglist VALUES (
+    'program', 'clgcode', 'clgname' , 'address' , 'course' , 'subcourse' , 'optioncode' , 'intake' );*/
+    
+#Syntax to insert new value into table logincred
+
+/*INSERT INTO logincred VALUES (
+    'username' , 'password');
+
+
+
+
+
+
+
+
+
+
